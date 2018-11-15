@@ -1,0 +1,81 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-sm-8">
+		<h2 class="text-center2">Event: {{post.title}}
+			{% for term in post.event_type %}
+				<a class="subject-link" href="{{ TimberTerm(term).link }}">
+					<span class="badge badge-primary badge-subject-{{TimberTerm(term).slug}}">{{TimberTerm(term).name}}</span>
+				</a>
+			{% endfor %}
+		</h2>
+	</div>
+
+	<div class="col-sm-4">
+		<h4 class="event-time text-right mt-1">
+			<i class="far fa-calendar"></i>
+			{{ post.get_field('group_date_time').date|date('D') }},
+			{{ post.get_field('group_date_time').date|date('M') }}
+			{{ post.get_field('group_date_time').date|date('j') }},
+			{{ post.get_field('group_date_time').date|date('Y') }}
+			<br>
+			<i class="far fa-clock"></i>
+			{{ post.get_field('group_date_time').start_time }} - {{post.get_field('group_date_time').end_time}}
+		</h4>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card">
+			<div class="card-body">
+				<!-- <div class="row">
+					<div class="col-sm-12">
+						<img src="{{ TimberImage(post.project_page_image) }}" class="img-fluid max-width" alt="Responsive image">
+					</div>
+				</div> -->
+
+				<!-- <div class="row">
+					<div class="col-sm-12">
+						<h2 class="text-center">{{post.title}}</h2>
+					</div>
+				</div> -->
+
+				<div class="row">
+					<div class="col-sm-12">
+						{{post.event_page_content|wpautop|shortcodes|bootstrap}}
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<h3>Resources</h3>
+						{% for item in post.get_field('event_page_resources').resource %}
+
+							<ul>
+								{% if item.acf_fc_layout == 'link' %}
+									<li>
+										<a class="event-resource-item" href="{{ item.url }}"><i class="fas fa-link"></i> {{ item.label }}</a>
+									</li>
+								{% elseif item.acf_fc_layout == 'file' %}
+									<li>
+										<a class="event-resource-item" href="{{ item.file.url }}"><i class="fas fa-file"></i> {{ item.label }}</a>
+									</li>
+								{% endif %}
+							</ul>
+
+						{% endfor %}
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

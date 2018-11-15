@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-sm-12">
+		<h2 class="text-center">Project: {{post.title}}
+			{% for term in post.subjects %}
+				<a class="subject-link" href="{{ TimberTerm(term).link }}">
+					<span class="badge badge-primary badge-subject-{{TimberTerm(term).slug}}">{{TimberTerm(term).name}}</span>
+				</a>
+			{% endfor %}
+			{% for term in post.features %}
+				<a class="feature-link" href="{{ TimberTerm(term).link }}">
+					<span class="badge badge-primary badge-feature-{{TimberTerm(term).slug}}">{{TimberTerm(term).name}}</span>
+				</a>
+			{% endfor %}
+		</h2>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card">
+			<div class="card-body">
+				<!-- <div class="row">
+					<div class="col-sm-12">
+						<img src="{{ TimberImage(post.project_page_image) }}" class="img-fluid max-width" alt="Responsive image">
+					</div>
+				</div> -->
+
+				<!-- <div class="row">
+					<div class="col-sm-12">
+						<h2 class="text-center">{{post.title}}</h2>
+					</div>
+				</div> -->
+
+				<div class="row">
+					<div class="col-sm-12">
+						{{post.project_page_content|wpautop|shortcodes|bootstrap}}
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

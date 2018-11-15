@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ADHC Net</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="refresh" content="120"/>
+	<link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+	<link rel="stylesheet" href="{{ site.theme.link }}/static/css/normalize.css">
+	<link rel="stylesheet" href="{{ site.theme.link }}/static/css/skeleton.css">
+	<!-- <link rel="stylesheet" href="//adhc.lib.ua.edu/assets/css/hover.css"> -->
+	<link rel="stylesheet" href="{{ site.theme.link }}/static/css/font-awesome.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="{{ site.theme.link }}/static/css/screen.css" type="text/css" media="screen" />
+	<link rel="icon" type="image/png" href="//adhc.lib.ua.edu/assets/img/favicon.jpg">
+</head>
+<body>
+	<div class="u-full-width">
+		<div id="app">
+			<div class="u-full-width banner row">
+				<div class="four columns">
+					<!-- <p></p> -->
+					<img id="lib-logo" src="https://www.lib.ua.edu/wp-content/themes/roots-ualib/assets/img/new-ualib-logo.png">
+				</div>
+				<div class="four columns">
+					<img id="logo" src="//adhc.lib.ua.edu/assets/img/adhc-logo-white-text.png">
+				</div>
+				<div class="four columns">
+					<h3 class="room-header">109A</h3>
+				</div>
+			</div>
+			<div class="page-container">
+				<h2 class="page-header">Calendar of Events</h2>
+				<hr>
+				{% for item in events %}
+					{% if item.get_field('group_date_time').date|date >= now|date and item.get_field('group_display').display_on_event_screen  %}
+					<div class="event event-card">
+						<div class="row">
+							<div id="col-1" class="three columns cal-icon-col">
+								<time datetime="2014-09-20" class="icon">
+									<em>{{ item.get_field('group_date_time').date|date('D') }}</em> <!-- day of week -->
+									<strong>{{ item.get_field('group_date_time').date|date('M') }}</strong> <!-- month -->
+									<span>{{ item.get_field('group_date_time').date|date('j') }}</span> <!-- date-->
+								</time>
+							</div>
+							<div id="col-2" class="six columns">
+								{% if item.event_type.value == 'class-meeting' or  item.event_type.value == 'project-meeting' %}
+									<h3 class="event-header">{{item.event_type.label}}</h3>
+								{% else %}
+									<h3 class="event-header">{{item.title}}</h3>
+								{% endif %}
+							</div>
+							<div id="col-3" class="three columns">
+								<h4 class="event-time">
+									<i class="material-icons">access_time</i>
+									{{ item.get_field('group_date_time').start_time }} - {{item.get_field('group_date_time').end_time}}
+								</h4>
+								<h4 class="event-info">
+									{% if item.reserve_type.value == 'table' or item.event_type.value  == 'project-meeting' %}
+										<i class="material-icons md-48 md-orange">warning</i>
+										Table Reserved
+
+									{% elseif item.reserve_type.value  == 'room' or item.event_type.value  == 'class-meeting' %}
+										<i class="material-icons md-48 md-red">error</i>
+										Room Reserved
+
+									{% elseif item.event_type.value  == 'workshop' %}
+										<i class="material-icons md-48 md-green">build</i>
+										Workshop
+
+									{% elseif item.event_type.value  == 'brown-bag' %}
+										<i class="material-icons md-48 md-brown">work</i>
+										Brown Bag
+
+									{% else %}
+										<i class="material-icons md-48 md-green">build</i>
+										{{item.reserve_type.label}} Reserved
+
+									{% endif %}
+
+								</h4>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

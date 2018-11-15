@@ -1,0 +1,230 @@
+html, body {
+    height: 100%;
+    background-color: #808080;
+}
+
+hr {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+h3 {
+    line-height: 3.4rem;
+    letter-spacing: 0.05rem;
+}
+
+.banner {
+    background-color: #7e2a2a;
+    display: block;
+    margin: auto;
+    border: none;
+}
+
+.banner * {
+    color: #fff;
+}
+
+.banner img {
+    display: block;
+    margin: auto;
+}
+
+.room-header {
+    padding-top: 1.40em;
+    text-align: right;
+    margin-right: 12rem;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+}
+
+#lib-logo {
+    width: 50%;
+    margin-top: 3.5rem;
+}
+
+#logo {
+    margin: auto;
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+    height: 95px;
+}
+
+.page-container {
+    padding: 0;
+    margin-top: 0;
+    display: block;
+    justify-content: center;
+    /* background-color: #808080; */
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: bold;
+    color: white;
+    background-color: #7e2a2a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+    margin-bottom: 0.5rem;
+}
+
+time.icon {
+    font-size: 1em;
+    /* change icon size */
+    display: block;
+    position: relative;
+    width: 7em;
+    height: 6em;
+    background-color: #fff;
+    border-radius: 0.6em;
+    /* box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd; */
+    /* box-shadow: 0 0 0 1px #bdbdbd; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+    overflow: hidden;
+}
+
+time.icon * {
+    display: block;
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+time.icon strong {
+    position: absolute;
+    top: 0;
+    padding: 0 0;
+    color: #fff;
+    background-color: #7e2a2a;
+    border-bottom: 1px dashed #7e2a2a;
+    box-shadow: 0 2px 0 #7e2a2a;
+}
+
+time.icon em {
+    position: absolute;
+    bottom: 0em;
+    color: #7e2a2a;
+}
+
+time.icon span {
+    font-size: 2.8em;
+    padding-top: 0.35em;
+    color: #2f2f2f;
+}
+
+time {
+    margin-right: 4em;
+}
+
+.cal-icon-col {
+    text-align: -webkit-right;
+}
+
+.event {
+    margin-bottom: 3rem;
+}
+
+.event-header {
+    padding-top: 4px;
+    margin-bottom: 0px;
+    margin-left: 2.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.event-info, .event-time {
+    margin-bottom: 0px;
+    /* margin-left: 2.2rem; */
+    font-weight: bold;
+    color: white;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.event-card {
+    padding-bottom: 1rem;
+    background-color: white;
+    padding-top: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.event-card * {
+    color: black;
+}
+
+.event-card .fa {
+    color: black !important;
+}
+
+.md-chip {
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 0 12px;
+    border-radius: 32px;
+    font-size: 13px;
+}
+
+.md-chip, .md-chip-icon {
+    height: 32px;
+    line-height: 32px;
+    display: none;
+}
+
+.md-chip-icon {
+    display: block;
+    float: left;
+    background: #009587;
+    width: 32px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    margin: 0 8px 0 -12px;
+}
+
+.material-icons {
+    font-size: 34px;
+}
+
+.event-info .material-icons, .event-time .material-icons {
+    padding-top: 4px;
+}
+
+.md-red {
+    color: #7e2a2a !important;
+}
+
+.md-orange {
+    color: #e48f10 !important;
+}
+
+.md-green {
+    color: #4CAF50 !important;
+}
+
+.md-brown {
+    color: #8B4513 !important;
+}
+
+#col-1 {
+    width: 20%;
+}
+
+#col-2 {
+    width: 47%;
+}
+
+#col-3 {
+    width: 23%;
+    margin-left: 3%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
