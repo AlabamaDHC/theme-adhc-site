@@ -32,6 +32,9 @@ h4, .h4 {
     font-size: 19px;
 }
 
+.container-main h1 {
+    text-align: center;
+}
 
 a {
     color: #326999;
