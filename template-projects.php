@@ -7,17 +7,20 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-$args = new WP_Query(
+
+$projects_query = new WP_Query(
     array(
         'numberposts'	=> -1,
         'post_type' => 'project',
         'posts_per_page' => 5,
-        'paged' => $paged
+        'paged' => $paged,
+		'meta_key' => 'project_order',
+		'orderby' => array(
+        	'meta_value_num' => 'ASC',
+        	'title' => 'ASC'
+    	),
     )
 );
 
-// $context['projects'] = Timber::get_posts( $args );
-$context['projects'] = new Timber\PostQuery($args);
-// $context['events'] = $events;
-
+$context['projects'] = new Timber\PostQuery($projects_query);
 Timber::render( array( 'template-projects.twig' ), $context );
