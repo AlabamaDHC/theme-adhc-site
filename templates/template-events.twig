@@ -22,7 +22,7 @@
 					<h1>{{post.title}}</h1>
 					{{content}}
 
-					{% for item in projects %}
+					{% for item in events %}
 						{% if item.get_field('group_date_time').date|date >= now|date and item.get_field('group_display').display_on_event_page %}
 							<div class="card project-card">
 								<div class="card-body ">
@@ -65,7 +65,7 @@
 
 
 					<h4>Past Events</h4>
-					{% for item in projects %}
+					{% for item in events %}
 						{% if item.get_field('group_date_time').date|date < now|date and item.get_field('group_display').display_on_event_page%}
 							<div class="card project-card">
 								<div class="card-body ">
