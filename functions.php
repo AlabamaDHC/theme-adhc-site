@@ -1046,6 +1046,52 @@ class StarterSite extends TimberSite {
 				'active' => 1,
 				'description' => '',
 			));
+			
+			
+			acf_add_local_field_group(array(
+				'key' => 'group_5beeef8de9b64',
+				'title' => 'Project Order',
+				'fields' => array(
+					array(
+						'key' => 'field_5beeef936cc30',
+						'label' => 'Project Order',
+						'name' => 'project_order',
+						'type' => 'number',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => 1000,
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'min' => 1,
+						'max' => '',
+						'step' => '',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'post_type',
+							'operator' => '==',
+							'value' => 'project',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'side',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => 1,
+				'description' => '',
+			));
 
 		}
 
