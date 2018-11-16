@@ -17,7 +17,7 @@ $args = new WP_Query(
 );
 
 // $context['projects'] = Timber::get_posts( $args );
-$context['projects'] = new Timber\PostQuery($args);
+$context['events'] = new Timber\PostQuery($args);
 // $context['events'] = $events;
 
 Timber::render( array( 'template-events.twig' ), $context );
